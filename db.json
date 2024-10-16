@@ -1,0 +1,32 @@
+{
+  "blogs": [
+    {
+      "title": "El Principe de Persia",
+      "author": "Elian Herrera",
+      "url": "www.pruebauel.com",
+      "likes": 36,
+      "id": "662bc03669c4bb38670843f5"
+    },
+    {
+      "title": "Clean Code",
+      "author": "Rubi Perez",
+      "url": "www.pruebauel.com",
+      "likes": 9,
+      "id": "662bcd4a69c4bb38670845be"
+    },
+    {
+      "title": "El Monje que Vendio su Ferrari",
+      "author": "Marco",
+      "url": "www.pruebauel.com",
+      "likes": 40,
+      "id": "662bc07e69c4bb38670843fb"
+    },
+    {
+      "id": "db87",
+      "title": "Lo nuevo",
+      "author": "Elian",
+      "url": "www.husca.com",
+      "likes": 0
+    }
+  ]
+}
