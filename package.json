@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && powershell Copy-Item -Recurse -Force ./dist ../api-blog-list/",
     "lint": "eslint .",
     "preview": "vite preview",
     "server": "json-server -p3000 --watch db.json"
