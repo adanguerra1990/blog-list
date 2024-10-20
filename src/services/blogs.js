@@ -6,9 +6,15 @@ function getAll() {
   return request.then((response) => response.data);
 }
 
-const create = (newObject) => {
+function create(newObject) {
   const request = axios.post(baseUrl, newObject);
-  return request.then((response) => response.data);
-};
+  return request.then((response) => response.data)
+}
 
-export default { getAll, create };
+function deleteEntry(id) {
+  const url = `${baseUrl}/${id}`
+  const request = axios.delete(url)
+  return request.then((response) => response.data)
+}
+
+export default { getAll, create, deleteEntry };

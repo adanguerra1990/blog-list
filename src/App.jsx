@@ -33,6 +33,15 @@ const App = () => {
     });
   };
 
+  const handleDelete = (id) => {
+    blogServices.deleteEntry(id)
+      .then(() => {
+        const updatedBlog = blogs.filter((blog) => blog.id !== id)
+        console.log('delete', updatedBlog)
+        setBlogs(updatedBlog)
+      })
+  }
+
   return (
     <>
       <h1>Blogs</h1>
@@ -69,7 +78,7 @@ const App = () => {
       </form>
       <div>
         {blogs.map((blog) => (
-          <Blog key={blog.id} blog={blog} />
+          <Blog key={blog.id} blog={blog} onDelete={handleDelete} />
         ))}
       </div>
     </>
