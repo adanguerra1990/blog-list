@@ -17,4 +17,10 @@ function deleteEntry(id) {
   return request.then((response) => response.data)
 }
 
-export default { getAll, create, deleteEntry };
+function updateLikes(id, updateObject) {
+  const url = `${baseUrl}/${id}`
+  const request = axios.put(url, updateObject)
+  return request.then(response => response.data)
+}
+
+export default { getAll, create, deleteEntry, updateLikes };

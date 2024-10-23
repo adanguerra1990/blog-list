@@ -33,14 +33,25 @@ const App = () => {
     });
   };
 
+  const handleLikes = (id) => {
+    const blogToLike = blogs.find((blog) => blog.id === id);
+    console.log("blogToLike..", blogToLike);
+
+    const updatedBlog = { ...blogToLike, likes: blogToLike.likes + 1 };
+    console.log("updatedBlog..", updatedBlog);
+
+    blogServices.updateLikes(id, updatedBlog).then((returnedBlog) => {
+      setBlogs(blogs.map((blog) => (blog.id === id ? returnedBlog : blog)));
+    });
+  };
+
   const handleDelete = (id) => {
-    blogServices.deleteEntry(id)
-      .then(() => {
-        const updatedBlog = blogs.filter((blog) => blog.id !== id)
-        console.log('delete', updatedBlog)
-        setBlogs(updatedBlog)
-      })
-  }
+    blogServices.deleteEntry(id).then(() => {
+      const updatedBlog = blogs.filter((blog) => blog.id !== id);
+      console.log("delete", updatedBlog);
+      setBlogs(updatedBlog);
+    });
+  };
 
   return (
     <>
@@ -78,7 +89,12 @@ const App = () => {
       </form>
       <div>
         {blogs.map((blog) => (
-          <Blog key={blog.id} blog={blog} onDelete={handleDelete} />
+          <Blog
+            key={blog.id}
+            blog={blog}
+            onLike={handleLikes}
+            onDelete={handleDelete}
+          />
         ))}
       </div>
     </>
